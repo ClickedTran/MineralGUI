@@ -1,4 +1,4 @@
-
+## ICON
 <div align="center">
 <img src="https://github.com/Clickedtran/MineralGUI/blob/Master/icon.gif">
 <br>
@@ -10,11 +10,11 @@
 </div>
 <br>
 
-<p align="center">This is a plugin that allows players to store mined ore in the MineralGUI</p>
+## Feature
+<h2 align="center"><i>This is a plugin that allows players to create their own ore storage</i></h2>
 <br>
 
-## General
-<br>
+## Command
 <h3 align="center"><u>ALL COMMAND FOR PLUGIN</u></h3>
 <table border="1" align="center">
 <tr>
@@ -45,9 +45,7 @@
 - [DEVirion](https://github.com/poggit/devirion)(SOF3)
 <br>
 
-## INSTALL
-<br>
-
+## Install
 >- Step 1: Click the `Direct Download` button to download the plugin
 >- Step 2: move the file `MineralGUI.phar` into the file `plugins`
 >- Step 3: Restart server
