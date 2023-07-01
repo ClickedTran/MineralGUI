@@ -1,0 +1,16 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Clickedtran/MineralGUI
+build-by-default: true
+branches:
+- Master
+projects:
+  MineralGUI:
+    path: ""
+    icon: mineral.jpg
+    libs:
+      - src: muqsit/invmenu/InvMenu
+        version: 4.6.2
+      - src: dktaps-pm-pl/pmforms/pmforms
+        version: 2.1.0
+      - src: DaPigGuy/libPiggyEconomy/libPiggyEconomy
+         version: 3.0.2
+...
