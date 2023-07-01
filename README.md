@@ -1,2 +1,0 @@
-# MineralGUI
-MineralGUI on PMMP
