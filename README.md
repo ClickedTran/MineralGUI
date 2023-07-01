@@ -39,14 +39,10 @@
 <br>
 
 ## Virion and Plugin Support
-- [InvMenu](https://github.com/muqsit/InvMenu)(Muqsit)
+- [InvMenu](https://github.com/muqsit/InvMenu)(muqsit)
 - [pmforms](https://github.com/dktapps-pm-pl/pmforms)(dktapps)
-- [EconomyAPI](https://github.com/onebone/EconomyS)(onebone)
+- [BedrockEconomy](https://github.com/cooldogepm/BedrockEconomy)(cooldogepm)
 - [DEVirion](https://github.com/poggit/devirion)(SOF3)
->- Please install the above 2 plugins including `EconomyAPI, DEVirion` into the `plugins/` directory
-<br>
-
->- As for `InvMenu` and `pmforms`, please install the above 2 plugins and `restart server`, add files `InvMenu` and `pmforms` in the `virions` section next to `PocketMine-MP
 <br>
 
 ## INSTALL
