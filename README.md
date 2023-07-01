@@ -11,7 +11,7 @@
 <br>
 
 ## Feature
-<h2 align="center"><i>This is a plugin that allows players to create their own ore storage</i></h2>
+- This is a plugin that allows players to create their own ore storage with unlimited quantities!
 <br>
 
 ## Command
