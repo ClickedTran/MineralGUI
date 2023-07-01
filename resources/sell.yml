@@ -1,0 +1,19 @@
+---
+cobblestone: "2.0"
+lapis: "5.0"
+redstone: "3.0"
+coal: "2.0"
+raw_iron: "4.0"
+raw_gold: "4.0"
+diamond: "7.0"
+emerald: "8.0"
+lapis_block: "45.0"
+redstone_block: "27.0"
+coal_block: "18.0"
+iron_block: "36"
+gold_block: "36.0"
+diamond_block: "63.0"
+emerald_block: "72.0"
+
+multip: 1 #Please do not set to 0, let it be 1 or other number, ALWAYS NOT SET TO 0
+...
