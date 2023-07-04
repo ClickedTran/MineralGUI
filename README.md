@@ -14,26 +14,29 @@
 - This is a plugin that allows players to create their own ore storage with unlimited quantities!
 <br>
 
-## Command
+## Command and Permission
 <h3 align="center"><u>ALL COMMAND FOR PLUGIN</u></h3>
 <table border="1" align="center">
 <tr>
 <th><p>Command</p></th>
 <th><p>Subcommand</p></th>
 <th><p>Description</p></th>
+<th><p>Permission</p></th>
 <th><p>Default Permission</p></th>
 </tr>
 <tr>
 <th>/mineral</th>
 <td></td>
 <td>Open Menu Mineral</td>
-<td>True</td>
+<td>mineral.command</td>
+<td>true</td>
 </tr>
 <tr>
 <th>/automine</th>
 <td><b>on</b> | <b>off</b></td>
 <td>Set <u>automatic<u></td>
-<td>True</td>
+<td>automine.command</td>
+<td>true</td>
 </tr>
 </table>
 <br>
