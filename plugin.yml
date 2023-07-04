@@ -8,8 +8,6 @@ github: https.github.com/ClickedTran
 permissions:
  mineral.command:
   default: true
- mineral.command.changemode:
-  default: true
  automine.command:
   default: true
  automine.command.on:
