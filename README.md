@@ -16,10 +16,10 @@
 <br>
 
 ## 💬 Command
-| **COMMAND** | **SUBCOMMAND** |
-| -- | -- |
-| `/mineral`  |                |
-| `automine`  | `on` : `off`   |
+| **COMMAND** | **SUBCOMMAND** | **DESCRIPTION** |**ALIASES**|
+| -- | -- | -- | -- |
+| `/mineral`  |                | `MineralGUI Command` | `/mineral` |
+| `/automine`  | `on` : `off`   | `AutoMine Command` | `/automine` `on/off` |
 <br>
 
 ## 📝 Permission
