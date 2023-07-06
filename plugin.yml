@@ -10,7 +10,3 @@ permissions:
   default: true
  mineral.command.automine:
   default: true
- mineral.command.automine.on:
-  default: true
- mineral.command.automine.off:
-  default: true
