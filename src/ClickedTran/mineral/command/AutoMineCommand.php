@@ -27,9 +27,9 @@ use ClickedTran\mineral\sound\SoundEffect;
 
 class AutoMineCommand extends Command implements PluginOwned {
   
-  private MineRal $plugin;
+  private Mineral $plugin;
   
-  public function __construct(MineRal $plugin){
+  public function __construct(Mineral $plugin){
     $this->plugin = $plugin;
     parent::__construct("automine", "§r§oAutoMine Command");
     $this->setPermission("mineral.command.automine");
@@ -47,7 +47,7 @@ class AutoMineCommand extends Command implements PluginOwned {
      }else{
        switch($args[0]){
          case "on":
-           if($sender->hasPermission("mineral.command.automine.on")){
+           if($sender->hasPermission("mineral.command.automine")){
                $auto->set($sender->getName(), "on");
                $sender->sendPopup("§l§cAutoMine §bON");
                SoundEffect::sendON($sender);
@@ -56,7 +56,7 @@ class AutoMineCommand extends Command implements PluginOwned {
            }
          break;
          case "off":
-           if($sender->hasPermission("mineral.automine.off")){
+           if($sender->hasPermission("mineral.command.automine")){
                $auto->set($sender->getName(), "off");
                $sender->sendPopup("§l§cAutoMine §bOFF");
                SoundEffect::sendOFF($sender);
@@ -75,7 +75,7 @@ class AutoMineCommand extends Command implements PluginOwned {
      }
   }
   
-  public function getOwningPlugin(): MineRal{
+  public function getOwningPlugin(): Mineral{
     return $this->plugin;
   }
 }
