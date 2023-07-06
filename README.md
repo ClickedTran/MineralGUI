@@ -15,30 +15,11 @@
 <br>
 
 ## Command and Permission
-<h3 align="center"><u>ALL COMMAND FOR PLUGIN</u></h3>
-<table border="1" align="center">
-<tr>
-<th><p>Command</p></th>
-<th><p>Subcommand</p></th>
-<th><p>Description</p></th>
-<th><p>Permission</p></th>
-<th><p>Default Permission</p></th>
-</tr>
-<tr>
-<th>/mineral</th>
-<td></td>
-<td>Open Menu Mineral</td>
-<td>mineral.command</td>
-<td>true</td>
-</tr>
-<tr>
-<th>/automine</th>
-<td><b>on</b> | <b>off</b></td>
-<td>Set <u>automatic<u></td>
-<td>automine.command</td>
-<td>true</td>
-</tr>
-</table>
+| **COMMAND** | **SUBCOMMAND** | **PERMISSION** |
+| -- | -- | -- |
+| `/mineral`  |                | `mineral.command` |
+| `automine`  | `on` : `off`   | `mineral.command.automine` |
+
 <br>
 
 ## Virion and Plugin Support
