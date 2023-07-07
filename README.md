@@ -1,4 +1,4 @@
-## ICON
+## 🖼️ ICON
 <div align="center">
 <img src="https://github.com/Clickedtran/MineralGUI/blob/Master/icon.gif">
 <br>
@@ -26,8 +26,8 @@
 <details>
 <summary>Click To See Permission</summary>
   
-- use `mineral.command` to allows the player to open the Mineral
-- use `mineral.command.automine` to allows the player to turn on/off automatic mode on Mineral
+- Use `mineralgui.command` to allows the player to open the `MineralGUI`
+- Use `mineralgui.command.automine` to allows the player to turn on/off automatic mode on `MineralGUI`
 </details>
 <br>
 
@@ -72,16 +72,16 @@ multip: 1 #Please do not set to 0, let it be 1 or other number, ALWAYS NOT SET T
 </details>
 <br>
 
-## Message List
+## 📑 Message List
 <details>
 <summary>Click To See All Message</summary>
   
 ```yaml
 ---
-prefix: "§l§a[ §bMINERAL §a] "
+prefix: "§l§a[ §bMINERALGUI §a] "
 
 menu:
- name: "§l§cM I N E R A L"
+ name: "§l§cM I N E R A L G U I"
  list_ore: "§l§a===§bLIST OF ALL YOUR ORE§a===\n§9＞ §bCOBBLESTONE: §d{cobblestone}\n§9＞ §bLAPIS: §d{lapis}\n§9＞ §bCOAL: §d{coal}\n§9＞ §bREDSTONE: §d{redstone}\n§9＞ §bIRON RAW: §d{iron_ore}\n§9＞ §bGOLD RAW: §d{gold_ore}\n§9＞ §bDIAMOND: §d{diamond}\n§9＞ §bEMERALD: §d{emerald}"
  list_block: "§l§a===§bLIST OF ALL YOUR BLOCK§a===\n§9＞ §bCOBBLESTONE: §d{cobblestone}\n§9＞ §bLAPIS BLOCK: §d{lapis_block}\n§9＞ §bCOAL_BLOCK: §d{coal_block}\n§9＞ §bREDSTONE: §d{redstone_block}\n§9＞ §bIRON BLOCK: §d{iron_block}\n§9＞ §bGOLD BLOCK: §d{gold_block}\n§9＞ §bDIAMOND BLOCK: §d{diamond_block}\n§9＞ §bEMERAL BLOCK: §d{emerald_block}"
  exit: "§l§cEXIT"
