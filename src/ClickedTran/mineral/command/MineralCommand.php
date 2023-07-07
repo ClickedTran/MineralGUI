@@ -32,7 +32,7 @@ class MineralCommand extends Command implements PluginOwned {
   public function __construct(Mineral $plugin){
     $this->plugin = $plugin;
     parent::__construct("mineral", "§r§oOpen MineRal");
-    $this->setPermission("mineral.command");
+    $this->setPermission("mineralgui.command");
   }
   
   public function execute(CommandSender $sender, string $label, array $args){
