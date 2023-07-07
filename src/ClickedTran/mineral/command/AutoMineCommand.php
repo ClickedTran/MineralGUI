@@ -32,7 +32,7 @@ class AutoMineCommand extends Command implements PluginOwned {
   public function __construct(Mineral $plugin){
     $this->plugin = $plugin;
     parent::__construct("automine", "§r§oAutoMine Command");
-    $this->setPermission("mineral.command.automine");
+    $this->setPermission("mineralgui.command.automine");
   }
   
   public function execute(CommandSender $sender, string $label, array $args){
@@ -47,7 +47,7 @@ class AutoMineCommand extends Command implements PluginOwned {
      }else{
        switch($args[0]){
          case "on":
-           if($sender->hasPermission("mineral.command.automine")){
+           if($sender->hasPermission("mineralgui.command.automine")){
                $auto->set($sender->getName(), "on");
                $sender->sendPopup("§l§cAutoMine §bON");
                SoundEffect::sendON($sender);
@@ -56,7 +56,7 @@ class AutoMineCommand extends Command implements PluginOwned {
            }
          break;
          case "off":
-           if($sender->hasPermission("mineral.command.automine")){
+           if($sender->hasPermission("mineralgui.command.automine")){
                $auto->set($sender->getName(), "off");
                $sender->sendPopup("§l§cAutoMine §bOFF");
                SoundEffect::sendOFF($sender);
