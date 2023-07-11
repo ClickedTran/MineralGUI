@@ -29,10 +29,9 @@ use muqsit\invmenu\type\InvMenuTypeIds;
 
 use ClickedTran\mineral\Mineral;
 use ClickedTran\mineral\sound\SoundEffect;
-use ClickedTran\mineral\form\FormManager;
 
-use dktapps\pmforms\{MenuForm, CustomForm, CustomFormResponse, MenuOption};
-use dktapps\pmforms\element\{Label, Input};
+use dktapps\pmforms\{CustomForm, CustomFormResponse};
+use dktapps\pmforms\element\Input;
 
 class GUIManager{
 	
@@ -42,13 +41,14 @@ class GUIManager{
   */
   public function menuORE(Player $player){
    $message = Mineral::getInstance()->getMessage();
-   $plugin = Mineral::getInstance()->getInstance();
+   $plugin = Mineral::getInstance();
    $menu = InvMenu::create(InvMenu::TYPE_DOUBLE_CHEST);
    $menu->setListener(Closure::fromCallable([$this, "menuListener"]));
    $menu->readonly();
    $menu->setName($message->getNested("menu.name"));
    $inv = $menu->getInventory();
-   for($i = 0; $i <= 9; $i++){
+   
+  for($i = 0; $i <= 9; $i++){
        $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
    }
    
@@ -124,7 +124,7 @@ class GUIManager{
     if($item_name === "Cobblestone"){
        $int->set($player->getName(), Mineral::COBBLESTONE);
        $id->set($player->getName(), "cobblestone");
-       $this->menuItemBlock($player);
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
@@ -132,15 +132,15 @@ class GUIManager{
     if($item_name === "Lapis"){
        $int->set($player->getName(), Mineral::LAPIS);
        $id->set($player->getName(), "lapis_lazuli");
-       $this->menuItemOre($player);
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
     
     if($item_name === "Lapis Block"){
        $int->set($player->getName(), Mineral::LAPIS_BLOCK);
-       $id->set($player->getName(), "lapis_lazuli");
-       $this->menuItemBlock($player);
+       $id->set($player->getName(), "lapis_lazuli_block");
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
@@ -148,15 +148,15 @@ class GUIManager{
     if($item_name === "Coal"){
        $int->set($player->getName(), Mineral::COAL);
        $id->set($player->getName(), "coal");
-       $this->menuItemOre($player);
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
     
     if($item_name === "Coal Block"){
        $int->set($player->getName(), Mineral::COAL_BLOCK);
-       $id->set($player->getName(), "coal");
-       $this->menuItemBlock($player);
+       $id->set($player->getName(), "coal_block");
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
@@ -164,15 +164,15 @@ class GUIManager{
     if($item_name === "Raw Iron"){
        $int->set($player->getName(), Mineral::IRON_ORE);
        $id->set($player->getName(), "raw_iron");
-       $this->menuItemOre($player);
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
     
     if($item_name === "Iron Block"){
        $int->set($player->getName(), Mineral::IRON_BLOCK);
-       $id->set($player->getName(), "iron");
-       $this->menuItemBlock($player);
+       $id->set($player->getName(), "iron_block");
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
@@ -180,15 +180,15 @@ class GUIManager{
     if($item_name === "Raw Gold"){
        $int->set($player->getName(), Mineral::GOLD_ORE);
        $id->set($player->getName(), "raw_gold");
-       $this->menuItemOre($player);
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
     
     if($item_name === "Gold Block"){
        $int->set($player->getName(), Mineral::GOLD_BLOCK);
-       $id->set($player->getName(), "gold");
-       $this->menuItemBlock($player);
+       $id->set($player->getName(), "gold_block");
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
@@ -196,31 +196,31 @@ class GUIManager{
     if($item_name === "Redstone"){
        $int->set($player->getName(), Mineral::REDSTONE);
        $id->set($player->getName(), "redstone_dust");
-       $this->menuItemOre($player);
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
     
     if($item_name === "Redstone Block"){
        $int->set($player->getName(), Mineral::REDSTONE_BLOCK);
-       $id->set($player->getName(), "redstone");
+       $id->set($player->getName(), "redstone_block");
        SoundEffect::sendNextMenu($player);
-       $this->menuItemBlock($player);
+       $this->menuItem($player);
        return $action->discard();
     }
     
     if($item_name === "Diamond"){
        $int->set($player->getName(), Mineral::DIAMOND);
       $id->set($player->getName(), "diamond");
-      $this->menuItemOre($player);
+      $this->menuItem($player);
       SoundEffect::sendNextMenu($player);
       return $action->discard();
     }
     
     if($item_name === "Diamond Block"){
        $int->set($player->getName(), Mineral::DIAMOND_BLOCK);
-       $id->set($player->getName(), "diamond");
-       $this->menuItemBlock($player);
+       $id->set($player->getName(), "diamond_block");
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
@@ -228,15 +228,15 @@ class GUIManager{
     if($item_name === "Emerald"){
        $int->set($player->getName(), Mineral::EMERALD);
        $id->set($player->getName(), "emerald");
-       $this->menuItemOre($player);
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
     
     if($item_name === "Emerald Block"){
        $int->set($player->getName(), Mineral::EMERALD_BLOCK);
-       $id->set($player->getName(), "emerald");
-       $this->menuItemBlock($player);
+       $id->set($player->getName(), "emerald_block");
+       $this->menuItem($player);
        SoundEffect::sendNextMenu($player);
        return $action->discard();
     }
@@ -308,20 +308,20 @@ class GUIManager{
   * Menu For Ore
   * @param Player $player
   */
-  public function menuItemOre($player){
+  public function menuItem($player){
    $type = Mineral::getInstance()->getInstance()->getId()->get($player->getName());
    $id = Mineral::getInstance()->getInstance()->getInt()->get($player->getName());
    $message = Mineral::getInstance()->getInstance()->getMessage();
    $menu = InvMenu::create(InvMenu::TYPE_DOUBLE_CHEST);
-   $menu->setListener(Closure::fromCallable([$this, "menuItemOreListener"]));
+   $menu->setListener(Closure::fromCallable([$this, "menuItemListener"]));
    $menu->readonly();
    $menu->setName($message->getNested("menu.name"));
    $inv = $menu->getInventory();
-   
    for($i = 0; $i <= 9; $i++){
-        $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
+     $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
    }
-   $inv->setItem(13, VanillaItems::{strtoupper($type)}()->setCustomName("§l§aYou Have: §9[ §c" . Mineral::getInstance()->getNumber($id, $player) . " §9]"));
+   
+   $inv->setItem(13, StringToItemParser::getInstance()->parse($type)->setCustomName("§l§aYou Have: §9[ §c" . Mineral::getInstance()->getNumber($id, $player) . " §9]"));
    
    $inv->setItem(17, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
    $inv->setItem(18, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
@@ -334,7 +334,7 @@ class GUIManager{
    
    $inv->setItem(26, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
    $inv->setItem(27, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   
+    
    $inv->setItem(28, VanillaItems::PAPER()->setCustomName("§oAdd x64")->setCount(64));
    $inv->setItem(29, VanillaItems::PAPER()->setCustomName("§oAdd x32")->setCount(32));
    $inv->setItem(30, VanillaItems::PAPER()->setCustomName("§oAdd x16")->setCount(16));
@@ -355,14 +355,15 @@ class GUIManager{
    $inv->setItem(42, VanillaBlocks::CHEST()->asItem()->setCustomName("§oWithdraw §cCustom"));
    
    for($i = 44; $i <= 52; $i++){
-       $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
+     $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
    }
    
    $inv->setItem(53, VanillaItems::WRITABLE_BOOK()->setCustomName($message->getNested("menu.back")));
+   
    $menu->send($player);
   }
   
-  public function menuItemOreListener(InvMenuTransaction $action) : InvMenuTransactionResult{
+  public function menuItemListener(InvMenuTransaction $action) : InvMenuTransactionResult{
     $item = $action->getOut();
     $item_name = $item->getCustomName();
     $player = $action->getPlayer();
@@ -380,19 +381,19 @@ class GUIManager{
     
     if($item_name === "§oAdd §cCustom"){
        $player->removeCurrentWindow($inv);
-       $player->sendForm($this->CustomAddItemForm($player));
+       $player->sendForm($this->CustomAddForm($player));
        return $action->discard();
     }
     
     if($item_name === "§oWithdraw §cCustom"){
       $player->removeCurrentWindow($inv);
-      $player->sendForm($this->CustomWithdrawItemForm($player));
+      $player->sendForm($this->CustomWithdrawForm($player));
       return $action->discard();
     }
     
     if($item_name === "§oAdd x64"){
-      if($player->getInventory()->contains(VanillaItems::{strtoupper($id)}()->setCount(64))){
-         $player->getInventory()->removeItem(VanillaItems::{strtoupper($id)}()->setCount(64));
+      if($player->getInventory()->contains(StringToItemParser::getInstance()->parse($id)->setCount(64))){
+         $player->getInventory()->removeItem(StringToItemParser::getInstance()->parse($id)->setCount(64));
          $data->set($type, ($data->get($type) + 64));
          $data->save();
          SoundEffect::sendSuccess($player);
@@ -407,8 +408,8 @@ class GUIManager{
     }
     
     if($item_name === "§oAdd x32"){
-      if($player->getInventory()->contains(VanillaItems::{strtoupper($id)}()->setCount(32))){
-         $player->getInventory()->removeItem(VanillaItems::{strtoupper($id)}()->setCount(32));
+      if($player->getInventory()->contains(StringToItemParser::getInstance()->parse($id)->setCount(32))){
+         $player->getInventory()->removeItem(StringToItemParser::getInstance()->parse($id)->setCount(32));
          $data->set($type, ($data->get($type) + 32));
          $data->save();
          SoundEffect::sendSuccess($player);
@@ -423,8 +424,8 @@ class GUIManager{
     }
     
     if($item_name === "§oAdd x16"){
-      if($player->getInventory()->contains(VanillaItems::{strtoupper($id)}()->setCount(16))){
-         $player->getInventory()->removeItem(VanillaItems::{strtoupper($id)}()->setCount(16));
+      if($player->getInventory()->contains(StringToItemParser::getInstance()->parse($id)->setCount(16))){
+         $player->getInventory()->removeItem(StringToItemParser::getInstance()->parse($id)->setCount(16));
          $data->set($type, ($data->get($type) + 16));
          $data->save();
          SoundEffect::sendSuccess($player);
@@ -445,7 +446,7 @@ class GUIManager{
             $player->sendMessage($prefix . $message->get("Inventory-Full"));
             $player->removeCurrentWindow($inv);
          }else{
-            $player->getInventory()->addItem(VanillaItems::{strtoupper($id)}()->setCount(64));
+            $player->getInventory()->addItem(StringToItemParser::getInstance()->parse($id)->setCount(64));
             $data->set($type, ($data->get($type) - 64));
             $data->save();
             SoundEffect::sendSuccess($player);
@@ -468,7 +469,7 @@ class GUIManager{
             $player->sendMessage($prefix . $message->get("Inventory-Full"));
             $player->removeCurrentWindow($inv);
          }else{
-            $player->getInventory()->addItem(VanillaItems::{strtoupper($id)}()->setCount(32));
+            $player->getInventory()->addItem(StringToItemParser::getInstance()->parse($id)->setCount(32));
             $data->set($type, ($data->get($type) - 32));
             $data->save();
             SoundEffect::sendSuccess($player);
@@ -490,7 +491,7 @@ class GUIManager{
             $player->sendMessage($prefix . $message->get("Inventory-Full"));
             $player->removeCurrentWindow($inv);
          }else{
-            $player->getInventory()->addItem(VanillaItems::{strtoupper($id)}()->setCount(16));
+            $player->getInventory()->addItem(StringToItemParser::getInstance()->parse($id)->setCount(16));
             $data->set($type, ($data->get($type) - 16));
            $data->save();
             SoundEffect::sendSuccess($player);
@@ -507,210 +508,8 @@ class GUIManager{
     return $action->discard();
   }
   
-  /**
-  * Menu For Block
-  * @param Player $player
-  */
-  public function menuItemBlock($player){
-   $type = Mineral::getInstance()->getInstance()->getId()->get($player->getName());
-   $id = Mineral::getInstance()->getInstance()->getInt()->get($player->getName());
-   $message = Mineral::getInstance()->getInstance()->getMessage();
-   $menu = InvMenu::create(InvMenu::TYPE_DOUBLE_CHEST);
-   $menu->setListener(Closure::fromCallable([$this, "menuItemBlockListener"]));
-   $menu->readonly();
-   $menu->setName($message->getNested("menu.name"));
-   $inv = $menu->getInventory();
-   
-   for($i = 0; $i <= 9; $i++){
-        $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   }
-   $inv->setItem(13, VanillaBlocks::{strtoupper($type)}()->asItem()->setCustomName("§l§aYou Have: §9[ §c" . Mineral::getInstance()->getNumber($id, $player) . " §9]"));
-   
-   $inv->setItem(17, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   $inv->setItem(18, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   
-   $inv->setItem(20, VanillaItems::NETHER_STAR()->setCustomName("§l§bADD"));
-   
-   $inv->setItem(22, VanillaBlocks::RAIL()->asItem()->setCustomName("§l|"));
-   
-   $inv->setItem(24, VanillaItems::NETHER_STAR()->setCustomName("§l§bWITHDRAW"));
-   
-   $inv->setItem(26, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   $inv->setItem(27, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   
-   $inv->setItem(28, VanillaItems::PAPER()->setCustomName("§oAdd x64")->setCount(64));
-   $inv->setItem(29, VanillaItems::PAPER()->setCustomName("§oAdd x32")->setCount(32));
-   $inv->setItem(30, VanillaItems::PAPER()->setCustomName("§oAdd x16")->setCount(16));
-   
-   $inv->setItem(31, VanillaBlocks::RAIL()->asItem()->setCustomName("§l|"));
-   
-   $inv->setItem(32, VanillaItems::PAPER()->setCustomName("§oWithdraw x16")->setCount(16));
-   $inv->setItem(33, VanillaItems::PAPER()->setCustomName("§oWithdraw x32")->setCount(32));
-   $inv->setItem(34, VanillaItems::PAPER()->setCustomName("§oWithdraw x64")->setCount(64));
-   
-   $inv->setItem(35, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   $inv->setItem(36, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   
-   $inv->setitem(38, VanillaBlocks::CHEST()->asItem()->setCustomName("§oAdd §cCustom"));
-   
-   $inv->setItem(40, VanillaBlocks::RAIL()->asItem()->setCustomName("§l|"));
-   
-   $inv->setItem(42, VanillaBlocks::CHEST()->asItem()->setCustomName("§oWithdraw §cCustom"));
-   
-   for($i = 44; $i <= 52; $i++){
-       $inv->setItem($i, VanillaBlocks::IRON_BARS()->asItem()->setCustomName("§l§r "));
-   }
-   
-   $inv->setItem(53, VanillaItems::WRITABLE_BOOK()->setCustomName($message->getNested("menu.back")));
-   $menu->send($player);
-  }
   
-  public function menuItemBlockListener(InvMenuTransaction $action) : InvMenuTransactionResult{
-    $item = $action->getOut();
-    $item_name = $item->getCustomName();
-    $player = $action->getPlayer();
-    $inv = $action->getAction()->getInventory();
-    $id = Mineral::getInstance()->getId()->get($player->getName());
-    $type = Mineral::getInstance()->getInt()->get($player->getName());
-    $message = Mineral::getInstance()->getMessage();
-    $prefix = $message->get("prefix");
-    $data = Mineral::getInstance()->getData($player);
-   
-    if($item_name === $message->getNested("menu.back")){
-       $this->menuORE($player);
-       return $action->discard();
-    }
-    
-    if($item_name === "§oAdd §cCustom"){
-      $player->removeCurrentWindow($inv);
-      $player->sendForm($this->CustomAddBlockForm($player));
-      return $action->discard();
-    }
-    
-    if($item_name === "§oWithdraw §cCustom"){
-      $player->removeCurrentWindow($inv);
-      $player->sendForm($this->CustomWithdrawBlockForm($player));
-      return $action->discard();
-    }
-    
-    if($item_name === "§oAdd x64"){
-      if($player->getInventory()->contains(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(64))){
-         $player->getInventory()->removeItem(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(64));
-         $data->set($type, ($data->get($type) + 64));
-         $data->save();
-         SoundEffect::sendSuccess($player);
-         $player->sendMessage($prefix . str_replace(["{amount}"], ["64"], $message->get("add_successfully")));
-         $player->removeCurrentWindow($inv);
-      }else{
-         $player->sendMessage($prefix . $message->get("add_fail"));
-         SoundEffect::sendFail($player);
-         $player->removeCurrentWindow($inv);
-      }
-      return $action->discard();
-    }
-    
-    if($item_name === "§oAdd x32"){
-      if($player->getInventory()->contains(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(32))){
-         $player->getInventory()->removeItem(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(32));
-         $data->set($type, ($data->get($type) + 32));
-         $data->save();
-         SoundEffect::sendSuccess($player);
-         $player->sendMessage($prefix . str_replace(["{amount}"], ["32"], $message->get("add_successfully")));
-         $player->removeCurrentWindow($inv);
-      }else{
-         $player->sendMessage($prefix . $message->get("add_fail"));
-         SoundEffect::sendFail($player);
-         $player->removeCurrentWindow($inv);
-      }
-      return $action->discard();
-    }
-    
-    if($item_name === "§oAdd x16"){
-      if($player->getInventory()->contains(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(16))){
-         $player->getInventory()->removeItem(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(16));
-         $data->set($type, ($data->get($type) + 16));
-         $data->save();
-         SoundEffect::sendSuccess($player);
-         $player->sendMessage($prefix . str_replace(["{amount}"], ["16"], $message->get("add_successfully")));
-         $player->removeCurrentWindow($inv);
-      }else{
-         $player->sendMessage($prefix . $message->get("add_fail"));
-         SoundEffect::sendFail($player);
-         $player->removeCurrentWindow($inv);
-      }
-      return $action->discard();
-    }
-    
-    if($item_name === "§oWithdraw x64"){
-      if($data->get($type) >= 64){
-         if($player->getInventory()->firstEmpty() == -1){
-            SoundEffect::sendFail($player);
-            $player->sendMessage($prefix . $message->get("Inventory-Full"));
-            $player->removeCurrentWindow($inv);
-         }else{
-            $player->getInventory()->addItem(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(64));
-            $data->set($type, ($data->get($type) - 64));
-            $data->save();
-            SoundEffect::sendSuccess($player);
-            $player->sendMessage($prefix . str_replace(["{amount}"], ["64"], $message->get("withdraw_successfully")));
-            $player->removeCurrentWindow($inv);
-         }
-      }else{
-        $player->removeCurrentWindow($inv);
-        $player->sendMessage($prefix . $message->get("withdraw_fail"));
-        SoundEffect::sendFail($player);
-      }  
-      return $action->discard();
-    }
-    
-   
-    if($item_name === "§oWithdraw x32"){
-      if($data->get($type) >= 32){
-         if($player->getInventory()->firstEmpty() == -1){
-            SoundEffect::sendFail($player);
-            $player->sendMessage($prefix . $message->get("Inventory-Full"));
-            $player->removeCurrentWindow($inv);
-         }else{
-            $player->getInventory()->addItem(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(32));
-            $data->set($type, ($data->get($type) - 32));
-            $data->save();
-            SoundEffect::sendSuccess($player);
-            $player->sendMessage($prefix . str_replace(["{amount}"], ["32"], $message->get("withdraw_successfully")));
-            $player->removeCurrentWindow($inv);
-         }
-      }else{
-        $player->removeCurrentWindow($inv);
-        $player->sendMessage($prefix . $message->get("withdraw_fail"));
-        SoundEffect::sendFail($player);
-      }  
-      return $action->discard();
-    }
-    
-    if($item_name === "§oWithdraw x16"){
-      if($data->get($type) >= 16){
-         if($player->getInventory()->firstEmpty() == -1){
-            SoundEffect::sendFail($player);
-            $player->sendMessage($prefix . $message->get("Inventory-Full"));
-            $player->removeCurrentWindow($inv);
-         }else{
-            $player->getInventory()->addItem(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount(16));
-            $data->set($type, ($data->get($type) - 16));
-           $data->save();
-            SoundEffect::sendSuccess($player);
-            $player->sendMessage($prefix . str_replace(["{amount}"], ["16"], $message->get("withdraw_successfully")));
-            $player->removeCurrentWindow($inv);
-        }
-      }else{
-        $player->removeCurrentWindow($inv);
-        $player->sendMessage($prefix . $message->get("withdraw_fail"));
-        SoundEffect::sendFail($player);
-      }  
-      return $action->discard();
-    }
-    return $action->discard();
-  }
-  
-  public function CustomAddItemForm(Player $player) : CustomForm{
+  public function CustomAddForm(Player $player) : CustomForm{
     $message = Mineral::getInstance()->getMessage();
     $prefix = $message->get("prefix");
     $id = Mineral::getInstance()->getId()->get($player->getName());
@@ -718,10 +517,9 @@ class GUIManager{
     $data_player = Mineral::getInstance()->getData($player);
     
     return new CustomForm(
-      "",
+      "§l§aMINERAL §b| §cADD",
       [
-        new Label("label", "Amount"),
-        new Input("amount", "", "Enter quantity here")
+        new Input("amount", "Amount", "Enter quantity here")
       ],
       function(Player $player, CustomFormResponse $data) use ($message, $id, $type, $data_player, $prefix) : void{
         $data = $data->getAll();
@@ -739,8 +537,8 @@ class GUIManager{
         if($amount < 0){
            $player->sendMessage($amount . " §cis less than 0");
         }else{
-          if($player->getInventory()->contains(VanillaItems::{strtoupper($id)}()->setCount((int)$amount))){
-             $player->getInventory()->removeItem(VanillaItems::{strtoupper($id)}()->setCount((int)$amount));
+          if($player->getInventory()->contains(StringToItemParser::getInstance()->parse($id)->setCount((int)$amount))){
+             $player->getInventory()->removeItem(StringToItemParser::getInstance()->parse($id)->setCount((int)$amount));
              $data_player->set($type, ($data_player->get($type) + $amount));
              $data_player->save();
              SoundEffect::sendSuccess($player);
@@ -756,8 +554,7 @@ class GUIManager{
       }
     );
   }
-  
-  public function CustomWithdrawItemForm(Player $player) : CustomForm{
+ public function CustomWithdrawForm(Player $player) : CustomForm{
     $message = Mineral::getInstance()->getMessage();
     $prefix = $message->get("prefix");
     $id = Mineral::getInstance()->getId()->get($player->getName());
@@ -765,10 +562,9 @@ class GUIManager{
     $data_player = Mineral::getInstance()->getData($player);
     
     return new CustomForm(
-      "",
+      "§l§aMINERAL §b| §cWITHDRAW",
       [
-        new Label("label", "Amount"),
-        new Input("amount", "", "Enter quantity here")
+        new Input("amount", "Amount", "Enter quantity here")
       ],
       function(Player $player, CustomFormResponse $data) use ($message, $id, $type, $data_player, $prefix) : void{
         $data = $data->getAll();
@@ -791,7 +587,7 @@ class GUIManager{
                $player->sendMessage($prefix . $message->get("Inventory-Full"));
             }else{
               SoundEffect::sendSuccess($player);
-              $player->getInventory()->addItem(VanillaItems::{strtoupper($id)}()->setCount((int)$amount));
+              $player->getInventory()->addItem(StringToItemParser::getInstance()->parse($id)->setCount((int)$amount));
               $player->sendMessage($prefix . str_replace(["{amount}"], [$amount], $message->get("withdraw_successfully")));
               $data_player->set($type, ($data_player->get($type) - $amount));
               $data_player->save();
@@ -799,109 +595,11 @@ class GUIManager{
           }else{
             SoundEffect::sendFail($player);
             $player->sendMessage($prefix . $message->get("withdraw_fail"));
-          }
-        }
-      },
-      function(Player $player) : void{
-        $player->sendMessage("Thank For Using!");
-      }
-    );
-  }
-  
-  public function CustomAddBlockForm(Player $player) : CustomForm{
-    $message = Mineral::getInstance()->getMessage();
-    $prefix = $message->get("prefix");
-    $id = Mineral::getInstance()->getId()->get($player->getName());
-    $type = Mineral::getInstance()->getInt()->get($player->getName());
-    $data_player = Mineral::getInstance()->getData($player);
-    
-    return new CustomForm(
-      "",
-      [
-        new Label("label", "Amount"),
-        new Input("amount", "", "Enter quantity here")
-      ],
-      function(Player $player, CustomFormResponse $data) use ($message, $id, $type, $data_player, $prefix) : void{
-        $data = $data->getAll();
-        $amount = $data["amount"];
-        if(!is_numeric($amount)){
-           $player->sendMessage($amount . " §cis not a number!");
-           return;
-        }
-        
-        if(!ctype_digit($amount) == 0.1){
-           $player->sendMessage($amount . " §c is a negative number");
-           return;
-        }
-        
-        if($amount < 0){
-           $player->sendMessage($amount . " §cis less than 0");
-        }else{
-          if($player->getInventory()->contains(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount((int)$amount))){
-             $player->getInventory()->removeItem(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount((int)$amount));
-             $data_player->set($type, ($data_player->get($type) + $amount));
-             $data_player->save();
-             SoundEffect::sendSuccess($player);
-             $player->sendMessage($prefix . str_replace(["{amount}"], [$amount], $message->get("add_successfully")));
-          }else{
-             $player->sendMessage($prefix . $message->get("add_fail"));
-             SoundEffect::sendFail($player);
           }
         }
       },
       function(Player $player) : void{
         $player->sendMessage("§l§aThank For Using!");
-      }
-    );
-  }
-  
-  public function CustomWithdrawBlockForm(Player $player) : CustomForm{
-    $message = Mineral::getInstance()->getMessage();
-    $prefix = $message->get("prefix");
-    $id = Mineral::getInstance()->getId()->get($player->getName());
-    $type = Mineral::getInstance()->getInt()->get($player->getName());
-    $data_player = Mineral::getInstance()->getData($player);
-    
-    return new CustomForm(
-      "",
-      [
-        new Label("label", "Amount"),
-        new Input("amount", "", "Enter quantity here")
-      ],
-      function(Player $player, CustomFormResponse $data) use ($message, $id, $type, $data_player, $prefix) : void{
-        $data = $data->getAll();
-        $amount = $data["amount"];
-        if(!is_numeric($amount)){
-           $player->sendMessage($amount . " §cis not a number!");
-           return;
-        }
-        
-        if(!ctype_digit($amount) == 0.1){
-           $player->sendMessage($amount . " §c is a negative number");
-           return;
-        }
-        
-        if($amount < 0){
-           $player->sendMessage($amount . " §cis less than 0");
-        }else{
-          if($data_player->get($type) >= $amount){
-            if($player->getInventory()->firstEmpty() === -1){
-               $player->sendMessage($prefix . $message->get("Inventory-Full"));
-            }else{
-              SoundEffect::sendSuccess($player);
-              $player->getInventory()->addItem(VanillaBlocks::{strtoupper($id)}()->asItem()->setCount((int)$amount));
-              $player->sendMessage($prefix . str_replace(["{amount}"], [$amount], $message->get("withdraw_successfully")));
-              $data_player->set($type, ($data_player->get($type) - $amount));
-              $data_player->save();
-            }
-          }else{
-            SoundEffect::sendFail($player);
-            $player->sendMessage($prefix . $message->get("withdraw_fail"));
-          }
-        }
-      },
-      function(Player $player) : void{
-        $player->sendMessage("Thank For Using!");
       }
     );
   }
