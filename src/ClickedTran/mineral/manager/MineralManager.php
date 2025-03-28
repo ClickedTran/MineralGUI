@@ -61,7 +61,6 @@ class MineralManager{
       "redstone block" => 0,
       "raw iron" => 0,
       "iron block" => 0,
-      "raw iron" => 0,
       "raw gold" => 0,
       "gold block" => 0
      ]
@@ -69,8 +68,8 @@ class MineralManager{
     $this->getPlayerData($player)->save();
   }
   
-  public function sendMSG(Player|Sender $player, string $msg){
-    return $player->sendMessage(Mineral::PREFIX . $msg);
+  public function sendMSG(Player|Sender $player, string $msg) : void{
+    $player->sendMessage(Mineral::PREFIX . $msg);
   }
   
   public function add(Player $player, string $type, int $amount){
