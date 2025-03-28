@@ -1,5 +1,5 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Clickedtran/MineralGUI
-build-by-default: false
+build-by-default: true
 branches:
 - Master
 projects:
@@ -9,8 +9,6 @@ projects:
     libs:
       - src: muqsit/invmenu/InvMenu
         version: 4.6.2
-      - src: dktapps-pm-pl/pmforms/pmforms
-        version: 2.1.0
       - src: DaPigGuy/libPiggyEconomy/libPiggyEconomy
         version: 3.0.2
 ...
