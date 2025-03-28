@@ -1,12 +1,12 @@
 name: MineralGUI
-version: 1.1.0
+version: 2.0.0
 api: 5.0.0
 author: ClickedTran
 main: ClickedTran\mineral\Mineral
-github: https.github.com/ClickedTran
+github: https://github.com/ClickedTran
 
 permissions:
  mineralgui.command:
   default: true
- mineralgui.command.automine:
-  default: true
+ mineralgui.command.automatic:
+  default: op
