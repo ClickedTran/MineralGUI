@@ -1,4 +1,6 @@
 ---
 economy:
  provider: bedrockeconomy
+
+language: en-US
 ...
