@@ -1,0 +1,43 @@
+---
+version: 2
+mineral:
+  permission: §cBạn không có quyền để sử dụng tính năng này!
+  command:
+    description: §aMở menu kho khoáng sản
+    use-ingame: §cVui lòng sử dụng trong trò chơi!
+  message:
+    not-found: §b%1 §ckhông tồn tại trong ngôn ngữ §b%2 §c!
+    sellall:
+      success: §aBạn đã bán toàn bộ khoáng sản trong kho và thu về được §b$%1
+      fail: §cBạn không có khoáng sản trong kho để bán!
+    sell:
+      success: §aBạn đã bán khoáng sản §b%1 §avới số lượng §9x%2 §avà nhận được §6$%3
+      fail: §cBạn không có đủ §bx%1 §9%2 §cđể bán!
+    deposit:
+      success: §aBạn đã gửi thành công §b%1§a vào kho khoáng sản với số lượng §9x%2
+      fail: §aBạn không có đủ §bx%2 §9%1§a để gửi vào kho khoáng sản!
+    withdraw:
+      success: §aBạn đã rút §bx%2§a loại §9%1§a ra khỏi kho khoáng sản thành công!
+      fail: §aTrong kho khoáng sản của bạn không đủ §bx%2§a loại §9%1§a để rút!
+      full-inv: §aTúi đồ của bạn đã quá đầy, vui lòng cất bớt và thử lại!
+    cancel: §aBạn đã hủy thao tác thành công!
+    automatic-mode: '§aChế độ tự động thêm vào kho: §b%1'
+    error: §b%1§c không hợp lệ, vui lòng thử lại!
+  menu:
+    name: §bKHO KHOÁNG SẢN
+    lore: '§aSố lượng đang có: §b%1'
+    automatic-mode: "§aChế Độ Tự Động Thêm Vào Kho: §9%1 \n\n§e>§b>§9Bấm để thay đổi§b<§e<"
+    sellall: §aBán tất cả khoáng sản trong kho
+    exit: §cTHOÁT
+    option:
+      name: '§bLOẠI QUẶNG: §a%1'
+      withdraw: §aLấy khoáng sản
+      deposit: §aThêm khoáng sản
+      sell: §aBán khoáng sản
+      message:
+        withdraw: §aNhập §ball§a để lấy toàn bộ §9/ §aNhập §bcancel§a để hủy thao
+          tác
+        deposit: §aNhập §ball§a để thêm toàn bộ §9/ §aNhập §bcancel§a để hủy thao
+          tác
+        sell: §aNhập §ball§a để bán toàn bộ §9/ §aNhập §bcancel§a để hủy thao tác
+...
