@@ -372,7 +372,7 @@ class GUIManager{
         )
     );
     
-    $menu->setListener(function(InvMenuTransaction $transaction) use ($manager, $player, $inv, $item) : InvMenuTransactionResult{
+    $menu->setListener(function(InvMenuTransaction $transaction) use ($manager, $player, $item) : InvMenuTransactionResult{
       
       switch($transaction->getAction()->getSlot()){
         case 0:
