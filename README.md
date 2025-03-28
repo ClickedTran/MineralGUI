@@ -34,7 +34,7 @@ language: en-US
 
 ## 📑 Language Supported!
 - [x] English (Default in config)
-- [x] Vietnamese [Click To Download](https://github.com/ClickedTran/MineralGUI/blob/Master/resources/vi-VN.yml)
+- [x] Vietnamese [Click To Download](https://github.com/ClickedTran/MineralGUI/blob/Master/resources/language/vi-VN.yml)
 
 *NOTE:* After downloading `Vietnamese (vi-VN.yml` file, please copy and paste it into `plugin_data/MineralGUI/language` and set `language` in **config.yml** to `vi-VN`, same for other languages!
 
