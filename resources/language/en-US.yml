@@ -1,0 +1,40 @@
+version: 2
+mineral:
+  permission: §c You do not have permission to use this feature.
+  command:
+    description: §aOpen the mineral storage menu
+    use-ingame: §cPlease use this in-game!
+  message:
+    not-found: §b%1 §cdoes not exist in language §b%2 §c!
+    sellall:
+      success: §aYou have sold all minerals in storage and earned §b$%1
+      fail: §cYou don't have any minerals in storage to sell!
+    sell:
+      success: §aYou have sold §b%1 §amineral with quantity §9x%2 §aand received §6$%3
+      fail: §cYou don't have enough §bx%1 §9%2 §cto sell!
+    deposit:
+      success: §aYou have successfully deposited §b%1§a into mineral storage with quantity §9x%2
+      fail: §aYou don't have enough §bx%2 §9%1§a to deposit into mineral storage!
+    withdraw:
+      success: §aYou have successfully withdrawn §b%1§a with quantity §bx%2!
+      fail: §aYour mineral storage does not have enough §bx%2§a of type §9%1§a to withdraw!
+      full-inv: §aYour inventory is too full, please make some space and try again!
+    cancel: §aYou have successfully canceled the action!
+    automatic-mode: '§aAutomatic mode: §b%1'
+    error: §b%1§c is invalid, please try again!
+  menu:
+    name: §bMINERAL STORAGE
+    lore: '§aCurrent quantity: §b%1'
+    automatic-mode: "§aAutomatic Mode: §9%1 \n\n§e>§b>§9Click to change§b<§e<"
+    sellall: §aSell all minerals in storage
+    exit: §cEXIT
+    option:
+      name: '§bORE TYPE: §a%1'
+      withdraw: §aWithdraw minerals
+      deposit: §aDeposit minerals
+      sell: §aSell minerals
+      message:
+        withdraw: §aType §ball§a to withdraw all §9/ §aType §bcancel§a to cancel the action
+        deposit: §aType §ball§a to deposit all §9/ §aType §bcancel§a to cancel the action
+        sell: §aType §ball§a to sell all §9/ §aType §bcancel§a to cancel the action
+...
