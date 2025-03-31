@@ -1,6 +1,6 @@
 ## 🖼️ ICON
 <img src="https://github.com/ClickedTran/MineralGUI/blob/Master/icon.gif">
-<img src="https://github.com/ClickedTran/MineralGUI/blob/Master/mineral.jpg">
+<img src="https://github.com/ClickedTran/MineralGUI/blob/Master/icon.jpg">
 <img src="https://github.com/ClickedTran/MineralGUI/blob/Master/icon.gif">
 
 ## 📖 Feature
@@ -42,9 +42,7 @@ language: en-US
 <br>
 
 ## Virion and Plugin Support
-- [InvMenu](https://github.com/muqsit/InvMenu)(muqsit)
-- [libPiggyEconomy](https://github.com/DaPigGuy/libPiggyEconomy)(DaPigGuy)
-- [DEVirion](https://github.com/poggit/devirion)(SOF3)
+- **INTEGRATED INTO THE PLUGIN IN CASE OF ERRORS FROM OLD VIRIONS VERSION**
 
 ## Contact
 - [Facebook](https://facebook.com/clickedtran.vn)
