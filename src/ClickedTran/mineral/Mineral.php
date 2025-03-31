@@ -22,9 +22,9 @@ use pocketmine\Server;
 use ClickedTran\mineral\command\MineralCommand;
 use ClickedTran\mineral\language\LanguageManager;
 use ClickedTran\mineral\manager\MineralManager;
-use muqsit\invmenu\InvMenuHandler;
+use ClickedTran\mineral\libs\muqsit\invmenu\InvMenuHandler;
 
-use DaPigGuy\libPiggyEconomy\libPiggyEconomy;
+use ClickedTran\mineral\libs\DaPigGuy\libPiggyEconomy\libPiggyEconomy;
 use function mkdir;
 
 class Mineral extends PluginBase {
