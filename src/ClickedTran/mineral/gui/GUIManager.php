@@ -20,9 +20,9 @@ use pocketmine\item\StringToItemParser;
 
 use pocketmine\player\Player;
 
-use muqsit\invmenu\InvMenu;
-use muqsit\invmenu\transaction\InvMenuTransaction; 
-use muqsit\invmenu\transaction\InvMenuTransactionResult;
+use ClickedTran\mineral\libs\muqsit\invmenu\InvMenu;
+use ClickedTran\mineral\libs\muqsit\invmenu\transaction\InvMenuTransaction; 
+use ClickedTran\mineral\libs\muqsit\invmenu\transaction\InvMenuTransactionResult;
 
 use ClickedTran\mineral\Mineral;
 use ClickedTran\mineral\language\LanguageManager;
