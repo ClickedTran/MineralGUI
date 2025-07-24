@@ -311,7 +311,7 @@ class EventListener implements Listener{
     
     if(isset($this->manager->sold[$player->getName()])){
       $item = $this->manager->sold[$player->getName()];
-      $name = strtolower($item->getName());
+      $name = strt_replace("_", " ", strtolower($item->getName()));
       $event->cancel();
       
       if($args[0] != "all" and $args[0] != "cancel" and !is_numeric($args[0])){
