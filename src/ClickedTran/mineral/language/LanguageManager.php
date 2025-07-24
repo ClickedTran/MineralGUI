@@ -31,6 +31,10 @@ class LanguageManager{
   }
   
   public function loadLanguage() : void{
+    foreach(array_keys($this->getPlugin()->getResources()) as $file){
+      $this->getPlugin()->saveResource($file);
+    }
+    
     $languageFolder = $this->getPlugin()->getDataFolder() . "language/";
     
     $languageFile = $this->getPlugin()->getConfig()->get("language");
