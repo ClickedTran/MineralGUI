@@ -110,7 +110,7 @@ class MineralManager{
           "lapis lazuli block" => 45,
           "redstone" => 6,
           "redstone block" => 54,
-          "raw ingot" => 4,
+          "raw iron" => 4,
           "iron block" => 36,
           "raw gold" => 3,
           "gold block" => 27
